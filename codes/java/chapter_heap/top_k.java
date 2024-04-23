@@ -10,17 +10,17 @@ import utils.*;
 import java.util.*;
 
 public class top_k {
-    /* åŸºäºå †æŸ¥æ‰¾æ•°ç»„ä¸­æœ€å¤§çš„ k ä¸ªå…ƒç´  */
+    /* »ùÓÚ¶Ñ²éÕÒÊı×éÖĞ×î´óµÄ k ¸öÔªËØ */
     static Queue<Integer> topKHeap(int[] nums, int k) {
-        // åˆå§‹åŒ–å°é¡¶å †
+        // ³õÊ¼»¯Ğ¡¶¥¶Ñ
         Queue<Integer> heap = new PriorityQueue<Integer>();
-        // å°†æ•°ç»„çš„å‰ k ä¸ªå…ƒç´ å…¥å †
+        // ½«Êı×éµÄÇ° k ¸öÔªËØÈë¶Ñ
         for (int i = 0; i < k; i++) {
             heap.offer(nums[i]);
         }
-        // ä»ç¬¬ k+1 ä¸ªå…ƒç´ å¼€å§‹ï¼Œä¿æŒå †çš„é•¿åº¦ä¸º k
+        // ´ÓµÚ k+1 ¸öÔªËØ¿ªÊ¼£¬±£³Ö¶ÑµÄ³¤¶ÈÎª k
         for (int i = k; i < nums.length; i++) {
-            // è‹¥å½“å‰å…ƒç´ å¤§äºå †é¡¶å…ƒç´ ï¼Œåˆ™å°†å †é¡¶å…ƒç´ å‡ºå †ã€å½“å‰å…ƒç´ å…¥å †
+            // Èôµ±Ç°ÔªËØ´óÓÚ¶Ñ¶¥ÔªËØ£¬Ôò½«¶Ñ¶¥ÔªËØ³ö¶Ñ¡¢µ±Ç°ÔªËØÈë¶Ñ
             if (nums[i] > heap.peek()) {
                 heap.poll();
                 heap.offer(nums[i]);
@@ -34,7 +34,7 @@ public class top_k {
         int k = 3;
 
         Queue<Integer> res = topKHeap(nums, k);
-        System.out.println("æœ€å¤§çš„ " + k + " ä¸ªå…ƒç´ ä¸º");
+        System.out.println("×î´óµÄ " + k + " ¸öÔªËØÎª");
         PrintUtil.printHeap(res);
     }
 }
